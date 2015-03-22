@@ -1,0 +1,32 @@
+<div class="ceiling-slider">
+		<div ui-slider="slider.options"  min="{{minCeilingHeight}}" max="{{maxCeilingHeight}}" step="0.1" use-decimals ng-model="ceilingHeight" style="height: 100%;"></div>
+        <div class="min-height">
+            2m
+        </div>
+        <div class="max-height">
+            6m
+        </div>
+        <div class="room-height">
+            {{ceilingHeight}}m
+        </div>
+</div>
+<div class="ceiling-canvas" ceiling-height model="ceilingHeight">
+
+</div>
+<div class="help" ng-show="boolShowHelp">
+    <ul class="help-contents">
+        <li class="help-content">
+            <div class="help-description">
+                Drag the circular slider UP/DOWN to set the ceiling height.
+            </div>
+            <img class="help-img" src="img/help/ceiling-height.gif">
+        </li>
+    </ul>
+    <div class="got-it">
+        <button class="button" ng-click="showHelp(false)">Got it!</button>
+        <input id="hide-help" type="checkbox" ng-model="settings.hideHelp" name="hide-help">
+        <label for="hide-help" class="hide-help">
+            Do not show again
+        </label>
+    </div>
+</div>

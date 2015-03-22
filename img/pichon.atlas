@@ -1,0 +1,104 @@
+
+pichon.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Body
+  rotate: false
+  xy: 287, 431
+  size: 27, 68
+  orig: 27, 68
+  offset: 0, 0
+  index: -1
+Face
+  rotate: false
+  xy: 2, 28
+  size: 173, 130
+  orig: 173, 130
+  offset: 0, 0
+  index: -1
+Head
+  rotate: false
+  xy: 2, 160
+  size: 283, 339
+  orig: 283, 339
+  offset: 0, 0
+  index: -1
+Left Eye
+  rotate: false
+  xy: 287, 405
+  size: 24, 24
+  orig: 24, 24
+  offset: 0, 0
+  index: -1
+Left Lower Arm
+  rotate: false
+  xy: 177, 128
+  size: 29, 30
+  orig: 29, 30
+  offset: 0, 0
+  index: -1
+Left Lower Leg
+  rotate: false
+  xy: 316, 442
+  size: 19, 25
+  orig: 19, 25
+  offset: 0, 0
+  index: -1
+Left Upper Arm
+  rotate: false
+  xy: 177, 96
+  size: 17, 30
+  orig: 17, 30
+  offset: 0, 0
+  index: -1
+Left Upper Leg
+  rotate: false
+  xy: 287, 374
+  size: 13, 29
+  orig: 13, 29
+  offset: 0, 0
+  index: -1
+Mouth
+  rotate: false
+  xy: 2, 2
+  size: 71, 24
+  orig: 71, 24
+  offset: 0, 0
+  index: -1
+Right Eye
+  rotate: false
+  xy: 75, 2
+  size: 24, 24
+  orig: 24, 24
+  offset: 0, 0
+  index: -1
+Right Lower Arm
+  rotate: false
+  xy: 316, 469
+  size: 29, 30
+  orig: 29, 30
+  offset: 0, 0
+  index: -1
+Right Lower Leg
+  rotate: false
+  xy: 347, 474
+  size: 19, 25
+  orig: 19, 25
+  offset: 0, 0
+  index: -1
+Right Upper Arm
+  rotate: false
+  xy: 208, 128
+  size: 17, 30
+  orig: 17, 30
+  offset: 0, 0
+  index: -1
+Right Upper Leg
+  rotate: true
+  xy: 101, 15
+  size: 11, 27
+  orig: 11, 27
+  offset: 0, 0
+  index: -1

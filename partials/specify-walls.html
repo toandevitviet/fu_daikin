@@ -1,0 +1,58 @@
+<div class="specify-walls height-wrapper block full-wrapper">
+    <div class="room-types" id="page-demo-1">
+        <div class="header-page slideExpandUp" style="float:left;" id="div-header">
+            <img id="logo" class="hatch" src="img/img1-1.jpg" style="float:left; border-radius:15px; ">
+            <span style="float:left;   margin-top: 50px;  margin-left: 10px;">3D Airflow</span>
+        </div>
+        <div class="center-page slideUp" id="div-center">
+            <p style="text-align:initial; margin:10px 0;">Vertical Auto-Swing automatically moves the flaps up and down and Horizontal Auto-Swing automatically moves the louvres left and right. With the combination of both, you enjoy a 3D airflow where air is circulated to every part of the room for uniform cooling of even large spaces. </p>
+        </div>
+        <div class="content-page" id="div-content">  
+            <div class="left-content stretchLeft" style="float:left; width:50%; min-height:400px;" id="div-content-1" >
+                <div class="line1" style="width:100%; margin-bottom:5px;">
+                  <img src="img/img1-2.jpg" style="border-radius:15px;">
+                  <img src="img/img1_4.png">
+                </div>
+                <div class="line2" style="width:100%" >
+                  <img src="img/img1-3.jpg" style="border-radius:15px;">
+                  <img src="img/img1_5.png">
+                </div>
+            </div>
+            <div class="right-content stretchRight" style="float:right; width:50%; min-height:400px; margin-left:-40px;" id="div-content-2">
+              <img src="img/img1_6.png" width="600" height="450" style="margin-left: -55px;">
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+$(document).ready(function () {
+    timer1 = setTimeout(function () {
+        $('#div-center').removeClass('center-page');
+    }, 5000);
+
+    timer2 = setTimeout(function () {
+        $('#div-content').removeClass('content-page');
+    }, 8000);
+
+    timer3 = setTimeout(function () {
+        $('#div-content-1').removeClass('left-content');
+    }, 12000);
+
+    timer4 = setTimeout(function () {
+        $('#div-content-2').removeClass('right-content');
+    }, 15000);
+});
+</script>
+
+<script language="javascript">
+   function printDiv(divName) {
+     var printContents = document.getElementById(divName).innerHTML;
+     var originalContents = document.body.innerHTML;
+
+     document.body.innerHTML = printContents;
+
+     window.print();
+
+     document.body.innerHTML = originalContents;
+}
+</script>

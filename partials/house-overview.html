@@ -1,0 +1,65 @@
+<div ng-if="!thereIsRoom" class="height-wrapper full-wrapper block">
+	<div class="centered">
+		<h1>
+		    Let's Start Adding Some Rooms
+		</h1>
+		<button class="button next" ng-click="addRoom()">Add a Room</button>
+	</div>
+	<div class="help" ng-show="boolShowHelp">
+	    <ul class="help-contents">
+	        <li class="help-content">
+	            <div class="help-description">
+	                Tap on 'Add a Room' to start adding a room to your house
+	            </div>
+	            <img class="help-img" src="img/help/house-overview-no-room.gif">
+	        </li>
+	    </ul>
+	    <div class="got-it">
+	        <button class="button" ng-click="showHelp(false)">Got it!</button>
+	        <input id="hide-help" type="checkbox" ng-model="settings.hideHelp" name="hide-help">
+	        <label for="hide-help" class="hide-help">
+	            Do not show again
+	        </label>
+	    </div>
+	</div>
+</div>
+<div ng-if="thereIsRoom" class="house-overview full-wrapper">
+	<div class="top">
+		<div class="top-header">
+			<img ng-src="img/{{houseType}}-top.png" class="house-img">
+			TOP<br><span class="header-level">LEVEL</span>
+		</div>
+		<div class="top-level">
+			<div class="vertical-align">
+			</div>
+		</div>
+	</div>
+	<div class="ground">
+		<div class="ground-header">
+			<img ng-src="img/{{houseType}}-ground.png" class="house-img">
+			MIDDLE/GROUND<br><span class="header-level">LEVEL</span>
+		</div>
+		<div class="ground-level">
+			<div class="vertical-align">
+			</div>
+		</div>
+	</div>
+	<div class="help" ng-class="currHelp.className" ng-show="boolShowHelp">
+    <ul class="help-contents">
+        <li class="help-content">
+            <div class="help-description" ng-bind="currHelp.description">              
+            </div>
+            <img class="help-img" ng-src="{{currHelp.img}}">
+        </li>
+    </ul>
+    <div class="got-it">
+        <button class="button" ng-show="currHelpIdx != 0" ng-click="nextHelp(-1)">&lt;</button>
+        <button class="button" ng-show="currHelpIdx != helpContents.length-1" ng-click="nextHelp(1)">&gt;</button>
+        <button class="button" ng-click="showHelp(false)">Got it!</button>
+        <input id="hide-help" type="checkbox" ng-model="settings.hideHelp" name="hide-help">
+        <label for="hide-help" class="hide-help">
+            Do not show again
+        </label>
+    </div>
+    </div>
+</div>

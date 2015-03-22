@@ -1,0 +1,147 @@
+<div class="drawing-canvas" style="padding: 10px; overflow:auto">
+    <div>
+    <h1 style="color:#fdc851; display: inline-block; margin-right: 20px; padding: 10px 20px; background-color: white; border-radius: 5px;">YOUR HOME</h1>
+    <label style="font-size:16px;color: #222; display:inline-block;margin-right: 20px;"><input type="radio" ng-model="houseType" value="hdb"> HDB</label>
+    <label style="font-size:16px; color: #222; display:inline-block;margin-right: 20px;"><input type="radio" ng-model="houseType" value="private"> Private</label>
+    </div>
+    <div ng-repeat="room in rooms" ng-init="show = true">
+    <h2 style="color:#68b3d8">Room <span ng-bind="$index + 1"></span>
+        <button ng-click="show = !show" style="font-size:16px; margin-left: 10px"><span ng-if="show">Collapse</span><span ng-if="!show">Expand</span></button>
+        <button ng-click="rooms.splice($index, 1)" style="font-size:16px; margin-left: 10px">Remove</button>
+    </h2>
+    <div ng-show="show">
+        <div style="margin-bottom: 10px">
+            <h3>Room Info</h3>
+            <label style="display:inline-block;margin-right: 20px; width: 120px">
+                <div class="label-title" style="color:#777">Room Area</div>
+                <input type="text" style="width:80px" ng-model="room.area"> sqm
+            </label>
+            <label style="display:inline-block;margin-right: 20px; width: 120px">
+                <div class="label-title" style="color:#777">Ceiling Height</div>
+                <input type="text" style="width:80px" ng-model="room.ceilingHeight"> m
+            </label>
+            <label style="display:inline-block;margin-right: 20px">
+                <div class="label-title" style="color:#777">Room Type</div>
+                <select ng-model="room.roomType">
+                <option value="Living/Dining Room with Kitchen">Living/Dining Room with Kitchen</option>
+                <option value="Living/Dining Room">Living/Dining Room</option>
+                <option value="Bedroom">Bedroom</option>
+                <option value="Others">Others</option>
+                </select>
+            </label>
+            <label style="display:inline-block;margin-right: 20px">
+                <div class="label-title" style="color:#777">Room Level</div>
+                <select ng-model="room.topLevel">
+                    <option value="true">Top Level</option>
+                    <option value="false">Ground Level</option>
+                </select>
+            </label>
+        </div>
+        <div style="margin-bottom: 10px">
+            <h3>Room Walls <button ng-click="addWall(room)">+</button></h3>
+            <div ng-show="room.polygon.edges.length == 0" style="color:#aaa">
+                No walls
+            </div>
+            <div ng-repeat="edge in room.polygon.edges" style="padding-left:30px; position: relative">
+                <div style="font-size: 20px; width: 30px; position: absolute; left:0; top: 0;" ng-bind="$index + 1">
+                </div>
+                <div style="margin-bottom: 20px">
+                <label style="display:inline-block;margin-right: 20px; width: 120px">
+                    <div class="label-title" style="color:#777">Wall Width</div>
+                    <input type="text" style="width:80px" ng-model="edge.length"> m
+                </label>
+                <label style="display:inline-block;margin-right: 20px; width: 120px">
+                    <div class="label-title" style="color:#777">External Wall</div>
+                    <input type="checkbox" style="width:80px" ng-click="edge.external = !edge.external">
+                </label>
+                <label ng-show="edge.external" style="display:inline-block;margin-right: 20px;">
+                    <div class="label-title" style="color:#777">Wall Orientation</div>
+                    <select ng-model="edge.direction">
+                        <option value="0">North</option>
+                        <option value="1">North West</option>
+                        <option value="2">West</option>
+                        <option value="3">South West</option>
+                        <option value="4">South</option>
+                        <option value="5">South East</option>
+                        <option value="6">East</option>
+                        <option value="7">North East</option>
+                    </select>
+                </label>
+                </div>
+                <div style="margin-bottom: 20px" ng-show="edge.external" >
+                    <div class="label-title" style="color:#777">Windows Areas <button ng-click="addWindow(edge)">+</button></div>
+                    <div ng-show="edge.windows.length == 0" style="color:#aaa">
+                        No windows
+                    </div>
+                    <div>
+                    <label style="display:inline-block; margin-right: 20px; width: 120px" ng-repeat="window in edge.windows">
+                        <input type="text" style="width:80px" ng-model="window.area"> sqm
+                    </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div>
+            <h3>Cooling Capacity: <span style="" ng-bind="getCoolingCapacity(room)"></span></h3>
+        </div>
+    </div>
+    <hr style="border-color: #888; border-width: 2px">
+    </div>
+    <button ng-click="addRoom()">+ Room</button>
+
+    <hr style="border-color: #888; border-width: 2px">
+    <div class="clearfix">
+        <div style="width: 48%; margin-right: 4%; float: left">
+            <h3>Sample</h3>
+            <textarea style="margin-bottom: 10px; display: block; width:100%; height: 300px;" ng-model="sample" ng-trim="false"></textarea>
+            <button ng-click="getRecommendationTrigger()">Recommend Me!</button>
+        </div>
+        <div style="width: 48%;float:left">
+            <h3>Recommendation (Inverter)</h3>
+            <div ng-repeat="proposal in proposals">
+                <h4 ng-bind="proposal.type"></h4>
+                <div>
+                    <b>FCU</b>
+                    <ul>
+                        <li ng-repeat="room in proposal.rooms">
+                            <span ng-bind="getFCUModel(room.attributes.fcu.inverter.fcu)"></span> - Room Cap ( 
+                            <span ng-bind="room.attributes.coolingCapacity"></span>)
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <b>CU - Total Caps(<span ng-bind="proposal.totalCaps"></span>)</b>
+                    <ul>
+                        <li ng-repeat="cu in proposal.cu.inverter">
+                            <span ng-bind="getCUModel(cu.cu)"></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <h3>Recommendation (Non Inverter)</h3>
+            <div ng-repeat="proposal in proposals">
+                <h4 ng-bind="proposal.type"></h4>
+                <div>
+                    <b>FCU</b>
+                    <div ng-repeat="room in proposal.rooms">
+                        <ul>
+                            <li ng-repeat="fcu in room.attributes.fcu.nonInverter.fcu">
+                                <span ng-bind="getFCUModel(fcu)"></span>- Room Cap ( 
+                                <span ng-bind="room.attributes.coolingCapacity"></span>)
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <b>CU - Total Caps(<span ng-bind="proposal.totalCaps"></span>)</b>
+                    <ul>
+                        <li ng-repeat="cu in proposal.cu.nonInverter">
+                            <span ng-bind="getCUModel(cu.cu)"></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

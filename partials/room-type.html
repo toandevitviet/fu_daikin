@@ -1,0 +1,41 @@
+<div class="room-type height-wrapper block full-wrapper">
+  <div class="room-types types centered">
+        <input id="kitchen" ng-model="roomType" name="room-type" type="radio" value="Living/Dining Room with Kitchen">
+        <label for="kitchen">
+            <img src="img/room-type/room_type_kitchen.png">
+            <div class="selection-label">Living/Dining Room with Kitchen</div>
+        </label>
+        <input id="dining" ng-model="roomType" name="room-type" type="radio" value="Living/Dining Room">
+        <label for="dining">
+            <img src="img/room-type/room_type_dining.png">
+            <div class="selection-label">Living/Dining Room</div>
+        </label>
+        <input id="bedroom" ng-model="roomType" name="room-type" type="radio" value="Bedroom">
+        <label for="bedroom">
+            <img src="img/room-type/room_type_bedroom.png">
+            <div class="selection-label">Bedroom</div>
+        </label>
+        <input id="other-rooms" ng-model="roomType" name="room-type" type="radio" value="Others">
+        <label for="other-rooms">
+            <img src="img/room-type/room_type_others.png">
+            <div class="selection-label">Others (eg. study, recreational, etc)</div>
+        </label>
+    </div>
+</div>
+<div class="help" ng-show="boolShowHelp">
+    <ul class="help-contents">
+        <li class="help-content">
+            <div class="help-description">
+                Tap on the correspending Room Type Icon to specify your room type.
+            </div>
+            <img class="help-img" src="img/help/room-type.gif">
+        </li>
+    </ul>
+    <div class="got-it">
+        <button class="button" ng-click="showHelp(false)">Got it!</button>
+        <input id="hide-help" type="checkbox" ng-model="settings.hideHelp" name="hide-help">
+        <label for="hide-help" class="hide-help">
+            Do not show again
+        </label>
+    </div>
+</div>

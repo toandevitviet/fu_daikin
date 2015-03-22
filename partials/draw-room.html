@@ -1,0 +1,34 @@
+<div class="draw-room-room-info">
+<div class="select-room-type">
+  <div class="room-type-text">Room Type</div>
+  <div class="room-type-value" ng-bind="roomType"></div>
+</div>
+<div class="area">
+  <div class="room-type-text">Area</div>
+  <div class="room-type-value area-value"></div>
+</div>
+</div>
+<div class="drawing-canvas" draw-room>
+  <canvas id="animation"></canvas>
+  <canvas id="actual"></canvas>
+  <canvas id="temp"></canvas>
+  <canvas id="background">Your browser does not support canvas</canvas>  
+</div>
+<div class="help" ng-class="currHelp.className" ng-show="boolShowHelp">
+    <ul class="help-contents">
+        <li class="help-content">
+            <div class="help-description" ng-bind-html="currHelp.description | trusted">              
+            </div>
+            <img class="help-img" ng-src="{{currHelp.img}}">
+        </li>
+    </ul>
+    <div class="got-it">
+        <button class="button" ng-show="currHelpIdx != 0" ng-click="nextHelp(-1)">&lt;</button>
+        <button class="button" ng-show="currHelpIdx != helpContents.length-1" ng-click="nextHelp(1)">&gt;</button>
+        <button class="button" ng-click="showHelp(false)">Got it!</button>
+        <input id="hide-help" type="checkbox" ng-model="settings.hideHelp" name="hide-help">
+        <label for="hide-help" class="hide-help">
+            Do not show again
+        </label>
+    </div>
+    </div>

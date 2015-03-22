@@ -1,0 +1,56 @@
+<div class="drawing-canvas" add-windows>
+  <div class="main-canvas">
+    <div class="main-wall">
+      <div class="main-wall-width"><span ng-bind="wallWidth"></span> m</div>
+      <div class="main-wall-height"><span ng-bind="wallHeight"></span> m</div>
+      
+      <div class="windows-container"></div>
+    </div>
+    <div class="button-group">
+      <button class="duplicate round-button">
+          <div class="button-content">
+            <span class="icon-copy"></span>
+            <div class="button-text">duplicate</div>
+          </div>
+        </button>
+        <button class="remove round-button">
+          <div class="button-content">
+            <span class="icon-eraser"></span>
+            <div class="button-text">remove</div>
+          </div>
+        </button>
+    </div>
+  </div>
+  <div class="sub-side-bar">
+    <div style="height: 50%;width:100%;position:relative;border-bottom:1px solid #bbb">
+      <div class="temp-window-container">
+        <img class="window-img" src="img/window.png">
+        <img class="window-img-clone" src="img/window.png">
+      </div>
+      <div style="position:absolute; width: 100%; top: 50%; margin-top: 60px; text-align: center; padding: 0 10px;">Drag &amp; Drop Me onto the Wall</div>
+    </div>
+    <div style="height: 50%;width:100%;position:relative">
+      <div class="room-view">
+      </div>
+      <div style="position: absolute; bottom: 10px; width: 100%; text-align: center; z-index:9">3D Preview</div>
+    </div>
+  </div>
+</div>
+<div class="help" ng-class="currHelp.className" ng-show="boolShowHelp">
+    <ul class="help-contents">
+        <li class="help-content">
+            <div class="help-description" ng-bind-html="currHelp.description | trusted">              
+            </div>
+            <img class="help-img" ng-src="{{currHelp.img}}">
+        </li>
+    </ul>
+    <div class="got-it">
+        <button class="button" ng-show="currHelpIdx != 0" ng-click="nextHelp(-1)">&lt;</button>
+        <button class="button" ng-show="currHelpIdx != helpContents.length-1" ng-click="nextHelp(1)">&gt;</button>
+        <button class="button" ng-click="showHelp(false)">Got it!</button>
+        <input id="hide-help" type="checkbox" ng-model="settings.hideHelp" name="hide-help">
+        <label for="hide-help" class="hide-help">
+            Do not show again
+        </label>
+    </div>
+    </div>

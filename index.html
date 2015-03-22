@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Daikin</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, user-scalable=no, maximum-scale=1, minimum-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="msapplication-tap-highlight" content="no" />
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/css/main.css">
+  <link rel="stylesheet" href="css/app.css"/>
+  <link rel="stylesheet" href="css/animations.css"/>
+  <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
+</head>
+<body class="{{controller}}">
+  <div class="container">
+      <div class="header1" style="float:left; width:10%;">
+          <div class="daikin-logo">
+              <div class="logo-wrapper">
+                  <a href="javascript:void(0)"><img class="logo" src="img/logo.png"></a>
+              </div>
+          </div>
+      </div>
+
+
+      <div class="content"  style="float:right; width:90%; min-height:700px;">
+        <div class="main-wrapper">
+          <div class="main" ng-view>
+
+          </div>
+
+          <div class="gridlines">
+          </div>
+        </div>
+        <div class="side">
+          <div class="bubble-wrapper">
+            <div class="bubble-top-gutter">
+            </div>
+            <div class="bubble">
+              <div class="height-wrapper block">
+                <div class="centered bubble-content" ng-bind-html="bubbleText | trusted">
+                </div>
+              </div>
+            </div>
+            <div class="bubble-bottom-gutter">
+            </div>
+          </div>
+          <div class="mascot">
+            <canvas class="mascot-img" width="320" height="480" />
+          </div>
+          <div class="tools">
+            <div class="undo-wrapper button-wrapper">
+              <button class="undo round-button" disabled>
+              <div class="button-content">
+                <span class="icon-undo"></span>
+                <div class="button-text">undo</div>
+                </div>
+              </button>
+            </div>
+            <div class="redo-wrapper button-wrapper">
+              <button class="redo round-button" disabled>
+              <div class="button-content">
+                <span class="icon-redo"></span>
+                <div class="button-text">redo</div>
+                </div>
+              </button>
+            </div>
+            <div class="clear-wrapper button-wrapper">
+              <button class="clear round-button" disabled>
+                <div class="button-content">
+                <span class="icon-delete"></span>
+                 <div class="button-text">clear</div>
+                </div>
+              </button>
+            </div>
+          </div>
+          <div class="navigation">
+            <div class="add-more-wrapper button-wrapper">
+              <button class="add-more round-button" ng-disabled="addDisabled" ng-click="addRoom()">
+              <div class="button-content">
+                <span class="icon-plus"></span>
+                <div class="button-text">add</div>
+              </div>
+              </button>
+            </div>
+            <div class="cancel-wrapper button-wrapper">
+              <button class="cancel round-button" ng-disabled="cancelDisabled" ng-click="cancel()">
+              <div class="button-content">
+                <span class="icon-close"></span>
+                <div class="button-text">cancel</div>
+              </div>
+              </button>
+            </div>
+
+           
+
+            <div class="back-wrapper button-wrapper">
+              <button class="back round-button" ng-disabled="backDisabled" ng-click="back()">
+              <div class="button-content">
+                <span class="icon-arrow-left"></span>
+                <div class="button-text">back</div>
+                </div>
+              </button>
+            </div>
+            <div class="next-wrapper button-wrapper">
+              <button class="next round-button" ng-disabled="nextDisabled" ng-click="next()">
+                <div class="button-content">
+                  <span class="icon-arrow-right"></span>
+                  <div class="button-text">next</div>
+                  </div>
+              </button>
+            </div>
+            <div class="done-wrapper button-wrapper">
+              <button class="done round-button" ng-disabled="doneDisabled" ng-click="complete()">
+                <div class="button-content">
+                  <span class="icon-checkmark"></span>
+                  <div class="button-text">done</div>
+                </div>
+              </button>
+            </div>
+             <input type="button" onclick="printDiv('page-demo-1')" value="Print test" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <audio src="assets/background.mp3" id="audio" > 
+        HTML5 audio not supported
+    </audio>
+  <script type="text/javascript" src="js/jquery.js"></script>
+   <script type="text/javascript" charset="utf-8" src="js/edge.5.0.0.min.js"></script>
+  <script src="js/jquery-ui.min.js"></script>
+  <script src="js/hammer.min.js"></script>
+  <script src="js/typed.js"></script>
+  <script src="js/jquery.ui.touch-punch.min.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="js/angular-animate.min.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="js/three.min.js"></script>
+  <script src="js/ThreeCSG.js"></script>
+  <script src="js/OrbitControls.js"></script>
+  <script src="js/spine.js"></script>
+  <script src="js/turbulenzengine.js"></script>
+  <script src="js/graphicsdevice.js"></script>
+  <script src="js/draw2d.js"></script>
+  <script src="js/SpriteBatch.js"></script>
+  <script src="js/slider.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/services.js"></script>
+  <script src="js/controllers.js"></script>
+  <script src="js/filters.js"></script>
+  <script src="js/min/directives-min.js"></script>
+
+</body>
+</html>

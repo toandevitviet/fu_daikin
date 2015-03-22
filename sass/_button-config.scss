@@ -1,0 +1,69 @@
+.button-wrapper{
+  display: none;
+}
+
+.house-overview-with-rooms{
+  .exit-wrapper, .add-more-wrapper, .done-wrapper{
+    display: inline-block;
+  }
+}
+
+.house-overview-no-room{
+  .exit-wrapper{
+    display: inline-block;
+  }
+}
+
+.room-info-section{
+  .back-wrapper{
+    display: inline-block;
+  }
+}
+
+.room-type{
+  .cancel-wrapper{
+    display: inline-block;
+  }
+}
+
+.draw-room{
+  .undo-wrapper, .clear-wrapper, .redo-wrapper{
+    display: inline-block
+  }
+  .cancel-wrapper, .back-wrapper, .next-wrapper{
+    display: inline-block
+  } 
+}
+
+.ceiling-height{
+  .cancel-wrapper, .back-wrapper, .next-wrapper{
+    display: inline-block
+  }
+}
+
+.specify-walls{
+  .cancel-wrapper, .back-wrapper, .next-wrapper{
+    display: inline-block
+  }
+}
+
+.wall-direction{
+  .cancel-wrapper, .back-wrapper, .next-wrapper{
+    display: inline-block
+  }
+}
+
+.add-windows{
+  .undo-wrapper, .clear-wrapper, .redo-wrapper{
+    display: inline-block
+  }
+  .cancel-wrapper, .back-wrapper, .next-wrapper{
+    display: inline-block
+  } 
+}
+
+.room-specs{
+  .cancel-wrapper, .back-wrapper, .done-wrapper{
+    display: inline-block
+  }
+}

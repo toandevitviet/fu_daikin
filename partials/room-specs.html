@@ -1,0 +1,45 @@
+<div class="room-specs-wrapper">
+<div class="room-info-content">
+		<div class="a-room-view">
+        <div class='a-room-canvas'></div>
+        </div>
+        <div class="room-info">
+		<p>
+			<span class="room-info-title">Room Type</span><br><span ng-bind="aRoom.roomType"></span>
+		</p>
+		<p>
+			<span class="room-info-title">Room Area</span><br><span ng-bind="aRoom.roomArea"></span> sq m
+		</p>
+        </div>
+    <div class="room-info">
+		<p>
+			<span class="room-info-title">Ceiling Height</span><br><span ng-bind="aRoom.ceilingHeight"></span> m
+		</p>
+        <p class="room-info-level">
+				<span class="room-info-title">Room Level</span><br><span ng-bind="aRoom.topLevel ? 'Top' : 'Ground'"></span>
+		</p>
+		</div>
+    </div>
+    <div class="room-walls">
+        	<p class="external-walls-heading">
+				<span class="room-info-title">External Walls<span ng-bind="aRoom.externalWallsIndexes.length > 0 ? ' (Total: ' + aRoom.externalWallsIndexes.length + ')' : ''"></span></span>
+			</p>
+			<ul ng-if="aRoom.externalWallsIndexes.length > 0" class="external-walls-info">
+				<li ng-repeat="externalIdx in aRoom.externalWallsIndexes track by $index" ng-init="external = aRoom.polygon.edges[externalIdx]" class="external-wall">
+					<div class="room-info-orientation"><div class="room-info-title">Orientation</div>
+					<div ng-bind="getDirectionName(external.direction)"></div>
+					</div>
+					<div class="room-info-windows"><div class="room-info-title">Windows<span ng-bind="external.windows.length > 0 ? ' (Total: '+external.windows.length+')' : ''"></span></div>
+						<ul class="windows-info" ng-if="external.windows.length > 0">
+							<li class="a-window-info" ng-repeat="window in external.windows">
+								<span ng-bind="window.area ? window.area : ((window.width * window.height)/400).toFixed(1)"></span> sq m
+							</li>
+						</ul>
+						<div class="windows-info" ng-if="external.windows.length == 0">None</div>
+					</p>
+				</li>
+			</ul>
+			<div class="external-walls-info" ng-if="aRoom.externalWallsIndexes.length == 0">None</div>
+    </div>
+	</div>
+</div>
